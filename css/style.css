@@ -324,18 +324,45 @@ i {
 }
 .video-text {
   max-width: 40%;
-  bottom: 25%;
+  bottom: 50%;
   z-index: 10;
   padding: 40px;
   position: absolute;
-  left: 30%;
-  transform: translate(-50%, 0);
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.9);
 }
 .video-text h1 {
   margin-bottom: 20px;
+}
+.home-video-play-button {
+  max-width: 40%;
+  bottom: 50%;
+  z-index: 10;
+  padding: 40px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0.2;
+}
+.active-play {
+  background: rgba(255, 255, 255, 0.9);
+  opacity: 1;
+  color: #61b4db;
+  animation: glow 1s infinite alternate;
+}
+@keyframes glow {
+  from {
+    box-shadow: 0 0 20px -20px rgba(157, 236, 88, 0.2);
+  }
+  to {
+    box-shadow: 0 0 20px 20px rgba(157, 236, 88, 0.8);
+  }
 }
 
 /*=========================== Services ============================ */
@@ -722,6 +749,14 @@ i {
   background-image: url(../img/kidsbg.png);
 }
 #owl-about img {
+  border-radius: 50%;
+  border: 10px solid;
+}
+.team-image {
+  background-image: url(../img/kidsbg.png);
+  padding: 4rem;
+}
+.team-image img {
   border-radius: 50%;
   border: 10px solid;
 }
@@ -2711,6 +2746,9 @@ textarea.form-control:focus {
   }
   /* background */
   #owl-about {
+    background-image: none;
+  }
+  .team-image {
     background-image: none;
   }
   #call-to-action {

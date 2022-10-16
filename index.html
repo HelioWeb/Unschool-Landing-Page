@@ -109,12 +109,21 @@
       <!-- Video header -->
       <div id="video-header" class="embed-responsive embed-responsive-16by9">
         <!-- placeholder image in case the browser doesn't play the video -->
-        <video id="bgvid" playsinline autoplay controls muted>
+        <video
+          id="bgvid"
+          playsinline
+          preload="auto"
+          poster="/videos/placeholder.jpg"
+        >
           <!-- video -->
-          <source src="videos/video.webm" type="video/webm" />
+          <!-- <source src="videos/video.webm" type="video/webm" /> -->
           <source src="videos/video.mp4" type="video/mp4" />
         </video>
-        <!-- /video-text -->
+        <i
+          class="home-video-play-button active-play fa fa-play"
+          style="font-size: 36px"
+          id="bgVideoPlay"
+        ></i>
       </div>
       <!-- /video header ends-->
       <!-- Clouds SVG Divider -->
@@ -639,49 +648,41 @@
           <div class="col-lg-8 col-lg-offset-2">
             <!-- Section heading -->
             <div class="section-heading">
-              <h2>Our Team</h2>
+              <h2>The Team</h2>
             </div>
           </div>
-          <!-- Team Carousel-->
-          <div id="owl-team" class="owl-carousel">
-            <div class="col-lg-12">
-              <!-- member 1-->
-              <div class="team-item">
-                <img src="img/team1.jpg" alt="" />
-                <div class="team-caption">
-                  <h5 class="text-light">Jane Doe</h5>
-                  <p>Founder</p>
+          <div class="row">
+            <div class="col-sm-12 col-lg-5">
+              <div class="team-image">
+                <div class="item">
+                  <img class="img-responsive" src="img/about1.jpg" alt="" />
                 </div>
               </div>
-              <!-- /team-item-->
             </div>
-            <!-- col-lg-12-->
-            <div class="col-lg-12">
-              <!-- member 2-->
-              <div class="team-item">
-                <img src="img/team2.jpg" alt="" />
-                <div class="team-caption">
-                  <h5 class="text-light">Mario Salles</h5>
-                  <p>Teacher</p>
-                </div>
-              </div>
-              <!-- /team-item-->
+            <!-- text -->
+            <div class="col-lg-7 col-sm-12">
+              <h3>Founder Name</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
+                cursus ante. Integer egestas nulla eget imperdiet fringilla.
+                Vivamus posuere porta nisl nec rhoncus. In consequat sit amet
+                turpis quis posuere. Maecenas aliquet suscipit sem, sed viverra
+                quam. Integer nec magna mollis arcu ornare condimentum sit amet
+                vel sem. Mauris ornare urna nec mi vestibulum, non posuere enim
+                aliquet. Curabitur porta nulla id lacinia fermentum. Duis et
+                aliquet leo, eu finibus sapien.
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet, lorem ipsuet lora consectetur
+                adipisicing elit Illo itaque ipsum sit ha Bu lum orci eget,
+                viverra elit aliquam erat volut pat phas ellus ac dolupta orem
+                retibusam qui commolu les felis tiam non metus ali quam eros
+                Pellentesque turpis lectus, placerat a ultricies a, posuere a
+                nibh. Fusce mollis imperdiet interdum.
+              </p>
             </div>
-            <!-- col-lg-12-->
-            <div class="col-lg-12">
-              <!-- member 3-->
-              <div class="team-item">
-                <img src="img/team3.jpg" alt="" />
-                <div class="team-caption">
-                  <h5 class="text-light">Julia Stan</h5>
-                  <p>Teacher</p>
-                </div>
-              </div>
-              <!-- /team-item-->
-            </div>
-            <!-- col-lg-12-->
+            <!-- /col-lg-8 -->
           </div>
-          <!--/owl-team -->
         </div>
         <!--/container -->
       </section>
