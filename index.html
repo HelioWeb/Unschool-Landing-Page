@@ -108,22 +108,22 @@
 
       <!-- Video header -->
       <div id="video-header" class="embed-responsive embed-responsive-16by9">
-        <!-- placeholder image in case the browser doesn't play the video -->
-        <video
-          id="bgvid"
-          playsinline
-          preload="auto"
-          poster="/videos/placeholder.jpg"
-        >
-          <!-- video -->
-          <!-- <source src="videos/video.webm" type="video/webm" /> -->
-          <source src="videos/video.mp4" type="video/mp4" />
-        </video>
-        <i
-          class="home-video-play-button active-play fa fa-play"
-          style="font-size: 36px"
-          id="bgVideoPlay"
-        ></i>
+        <div class="video-with-button">
+          <video
+            id="bgvid"
+            playsinline
+            preload="auto"
+            poster="/videos/placeholder.jpg"
+          >
+            <!-- video -->
+            <!-- <source src="videos/video.webm" type="video/webm" /> -->
+            <source src="videos/video.mp4" type="video/mp4" />
+          </video>
+          <i
+            class="home-video-play-button active-play fa fa-play"
+            id="bgVideoPlay"
+          ></i>
+        </div>
       </div>
       <!-- /video header ends-->
       <!-- Clouds SVG Divider -->
