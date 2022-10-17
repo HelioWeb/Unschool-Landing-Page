@@ -364,10 +364,11 @@ i {
   opacity: 0.4;
 }
 .active-play {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(97, 180, 219, 0.9);
   opacity: 1;
-  color: #61b4db;
-  animation: glow 1s infinite alternate;
+  color: #9dec58;
+  mix-blend-mode: hard-light;
+  animation: glow 1.5s infinite alternate;
 }
 @keyframes glow {
   from {
@@ -2693,7 +2694,9 @@ textarea.form-control:focus {
 }
 .modal-window > div {
   width: 90%;
-  max-width: 400px;
+  max-width: 700px;
+  max-height: 80vh;
+  overflow-y: auto;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -2731,6 +2734,73 @@ textarea.form-control:focus {
 }
 .modal-close:hover {
   color: #9dec58;
+}
+
+/* Custom Radio Buttons */
+.styled-input-container {
+  margin-top: 15px;
+}
+.styled-input-single {
+  position: relative;
+  padding: 0px 0 0 30px;
+  text-align: left;
+}
+.styled-input-single label {
+  cursor: pointer;
+}
+.styled-input-single label:before,
+.styled-input-single label:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  border-radius: 50%;
+}
+.styled-input-single label:before {
+  left: 0;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0;
+  background: #f7f7f7;
+  box-shadow: 0 0 1px grey;
+}
+.styled-input-single label:after {
+  left: 5px;
+  width: 10px;
+  height: 10px;
+  margin: -5px 0 0;
+  opacity: 0;
+  background: #50c5b7;
+  transform: translate3d(-40px, 0, 0) scale(0.5);
+  transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
+}
+.styled-input-single input[type="radio"],
+.styled-input-single input[type="checkbox"] {
+  position: absolute;
+  top: 0;
+  left: -9999px;
+  visibility: hidden;
+}
+.styled-input-single input[type="radio"]:checked + label:after,
+.styled-input-single input[type="checkbox"]:checked + label:after {
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+}
+
+.styled-input--rounded label:before {
+  border-radius: 8px;
+}
+.styled-input--rounded label:after {
+  border-radius: 2px;
+}
+
+/* Custom Form */
+.form-question {
+  font-size: 22px;
+  margin-bottom: 10px;
+  font-family: "Sirin Stencil", cursive;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  color: #333;
 }
 
 /*=========================== Media Queries ============================ */

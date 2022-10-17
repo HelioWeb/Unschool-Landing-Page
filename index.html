@@ -126,6 +126,7 @@
         </div>
       </div>
       <!-- /video header ends-->
+
       <!-- Clouds SVG Divider -->
       <div class="hidden-xs container-fluid cloud-divider">
         <svg
@@ -581,60 +582,432 @@
               <h2>Interactions</h2>
             </div>
           </div>
-          <!-- /row -->
+
           <div class="row">
-            <!-- item 1-->
+            <!-- Intrested? -->
             <div class="col-md-4 col-sm-12">
               <div class="service float">
                 <img
-                  src="img/service1.jpg"
+                  src="img/thinking.png"
                   alt=""
                   class="img-circle center-block img-responsive"
                 />
-                <h4>Intrested?</h4>
+                <h4>
+                  <a
+                    href="#modal-intrested-form"
+                    style="text-decoration: none; color: #fff"
+                    >Intrested?</a
+                  >
+                </h4>
                 <p>
-                  Lectus placerat a ultricies a,interdum donec eget metus auguen
-                  u Fusce mollis imperdiet interdum donec eget metus auguen unc
-                  vel lorem.
+                  Please let us know will you be intreseted in joining Unschool
+                  for your child.
                 </p>
               </div>
             </div>
-            <!-- /col-md-4-->
-            <!-- item 2-->
+            <!-- Interested Form -->
+            <div id="modal-intrested-form" class="modal-window">
+              <div>
+                <a href="#same-location" title="Close" class="modal-close">✕</a>
+                <h1>Intrested in Unschool?</h1>
+                <form>
+                  <div class="styled-input-container styled-input--rounded">
+                    <div class="styled-input-single">
+                      <input
+                        type="radio"
+                        name="fieldset-3"
+                        id="radio3-example-one"
+                      />
+                      <label for="radio3-example-one"
+                        >Yes. Definitely! 😀</label
+                      >
+                    </div>
+                    <div class="styled-input-single">
+                      <input
+                        type="radio"
+                        name="fieldset-3"
+                        id="radio3-example-two"
+                      />
+                      <label for="radio3-example-two">Not really 🙄</label>
+                    </div>
+                  </div>
+                  <button
+                    type="submit"
+                    id="submit_btn"
+                    value="Submit"
+                    class="btn center-block"
+                    style="float: right"
+                  >
+                    Submit
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <!-- Feedback -->
             <div class="col-md-4 col-sm-12 res-margin">
               <div class="service float">
                 <img
-                  src="img/service2.jpg"
+                  src="img/happy.png"
                   alt=""
                   class="img-circle center-block img-responsive"
                 />
-                <h4>Feedback</h4>
-                <p>
-                  Lectus placerat a ultricies a,interdum donec eget metus auguen
-                  u Fusce mollis imperdiet interdum donec eget metus auguen unc
-                  vel lorem.
-                </p>
+                <h4>
+                  <a
+                    href="#modal-feedback-form"
+                    style="text-decoration: none; color: #fff"
+                    >Feedback</a
+                  >
+                </h4>
+                <p>We'd love to know your feedback on Unschool.</p>
               </div>
             </div>
-            <!-- /col-md-3-->
-            <!-- item 3-->
+            <!-- Feedback Form -->
+            <div
+              id="modal-feedback-form"
+              class="modal-window"
+              style="margin-top: 6%"
+            >
+              <div>
+                <a href="#close-modal" title="Close" class="modal-close">✕</a>
+                <h1>Feedback</h1>
+                <form>
+                  <!-- Question 1 -->
+                  <span class="form-question"
+                    >1. Which topics would you like to be part of
+                    curriculum?</span
+                  >
+                  <div class="styled-input-container styled-input--rounded">
+                    <div class="styled-input-single">
+                      <input type="checkbox" name="fb-q1-o1" id="fb-q1-o1" />
+                      <label for="fb-q1-o1">Basic Syllabus</label>
+                    </div>
+                    <div class="styled-input-single">
+                      <input type="checkbox" name="fb-q1-o2" id="fb-q1-o2" />
+                      <label for="fb-q1-o2">Art and craft</label>
+                    </div>
+                    <div class="styled-input-single">
+                      <input type="checkbox" name="fb-q1-o3" id="fb-q1-o3" />
+                      <label for="fb-q1-o3">Music and Rythm</label>
+                    </div>
+                    <div class="styled-input-single">
+                      <input type="checkbox" name="fb-q1-o4" id="fb-q1-o4" />
+                      <label for="fb-q1-o4"
+                        >Fitness and eye/hand coordination</label
+                      >
+                    </div>
+                    <div class="styled-input-single">
+                      <input type="checkbox" name="fb-q1-o5" id="fb-q1-o5" />
+                      <label for="fb-q1-o5">Speech Vocabulary</label>
+                    </div>
+                    <div class="styled-input-single">
+                      <input type="checkbox" name="fb-q1-o6" id="fb-q1-o6" />
+                      <label for="fb-q1-o6">All of the above</label>
+                    </div>
+                  </div>
+
+                  <!-- Question 2 -->
+                  <span class="form-question"
+                    >2. How frequently would you like to attend school with the
+                    Child?</span
+                  >
+                  <div class="styled-input-container styled-input--rounded">
+                    <div class="styled-input-single">
+                      <input type="checkbox" name="fb-q2-o1" id="fb-q2-o1" />
+                      <label for="fb-q2-o1">Once a week</label>
+                    </div>
+                    <div class="styled-input-single">
+                      <input type="checkbox" name="fb-q2-o2" id="fb-q2-o2" />
+                      <label for="fb-q2-o2">Once in 2 weeks</label>
+                    </div>
+                    <div class="styled-input-single">
+                      <input type="checkbox" name="fb-q2-o3" id="fb-q2-o3" />
+                      <label for="fb-q2-o3">Once a month</label>
+                    </div>
+                  </div>
+
+                  <!-- Question 3 -->
+                  <span class="form-question"
+                    >3. How frequently would you like to attend child's outdoors
+                    activities?</span
+                  >
+                  <div class="styled-input-container styled-input--rounded">
+                    <div class="styled-input-single">
+                      <input type="checkbox" name="fb-q3-o1" id="fb-q3-o1" />
+                      <label for="fb-q3-o1">Once in 2 weeks</label>
+                    </div>
+                    <div class="styled-input-single">
+                      <input type="checkbox" name="fb-q3-o2" id="fb-q3-o2" />
+                      <label for="fb-q3-o2">Once a month</label>
+                    </div>
+                    <div class="styled-input-single">
+                      <input type="checkbox" name="fb-q3-o3" id="fb-q3-o3" />
+                      <label for="fb-q3-o3">Once in 2 months</label>
+                    </div>
+                  </div>
+
+                  <!-- Question 4 -->
+                  <span class="form-question"
+                    >4. Which topics you might seek professionals
+                    guidance?</span
+                  >
+                  <div class="styled-input-container styled-input--rounded">
+                    <div class="styled-input-single">
+                      <input type="checkbox" name="fb-q4-o1" id="fb-q4-o1" />
+                      <label for="fb-q4-o1">Syllabus revision techniques</label>
+                    </div>
+                    <div class="styled-input-single">
+                      <input type="checkbox" name="fb-q4-o2" id="fb-q4-o2" />
+                      <label for="fb-q4-o2">Daily routine</label>
+                    </div>
+                    <div class="styled-input-single">
+                      <input type="checkbox" name="fb-q4-o3" id="fb-q4-o3" />
+                      <label for="fb-q4-o3">Behavioural observation</label>
+                    </div>
+                    <div class="styled-input-single">
+                      <input type="checkbox" name="fb-q4-o4" id="fb-q4-o4" />
+                      <label for="fb-q4-o4">Discipline</label>
+                    </div>
+                    <div class="styled-input-single">
+                      <input type="checkbox" name="fb-q4-o5" id="fb-q4-o5" />
+                      <label for="fb-q4-o5">Temper issues</label>
+                    </div>
+                    <div class="styled-input-single">
+                      <input type="checkbox" name="fb-q4-o6" id="fb-q4-o6" />
+                      <label for="fb-q4-o6">Keeping child engaged longer</label>
+                    </div>
+                    <div class="styled-input-single">
+                      <input type="checkbox" name="fb-q4-o7" id="fb-q4-o7" />
+                      <label for="fb-q4-o7">Learning encouragement</label>
+                    </div>
+                    <div class="styled-input-single">
+                      <input type="checkbox" name="fb-q4-o8" id="fb-q4-o8" />
+                      <label for="fb-q4-o8">All of the above</label>
+                    </div>
+                  </div>
+
+                  <!-- Question 5 -->
+                  <span class="form-question"
+                    >5. Which would be your major criteria’s while selecting
+                    preschool?</span
+                  >
+                  <div class="styled-input-container styled-input--rounded">
+                    <div class="styled-input-single">
+                      <input type="checkbox" name="fb-q5-o1" id="fb-q5-o1" />
+                      <label for="fb-q5-o1">Curriculum</label>
+                    </div>
+                    <div class="styled-input-single">
+                      <input type="checkbox" name="fb-q5-o2" id="fb-q5-o2" />
+                      <label for="fb-q5-o2">Teacher qualification</label>
+                    </div>
+                    <div class="styled-input-single">
+                      <input type="checkbox" name="fb-q5-o3" id="fb-q5-o3" />
+                      <label for="fb-q5-o3">Extra curricular activities</label>
+                    </div>
+                    <div class="styled-input-single">
+                      <input type="checkbox" name="fb-q5-o4" id="fb-q5-o4" />
+                      <label for="fb-q5-o4">Safety</label>
+                    </div>
+                    <div class="styled-input-single">
+                      <input type="checkbox" name="fb-q5-o5" id="fb-q5-o5" />
+                      <label for="fb-q5-o5">Student to teacher ratio</label>
+                    </div>
+                    <div class="styled-input-single">
+                      <input type="checkbox" name="fb-q5-o6" id="fb-q5-o6" />
+                      <label for="fb-q5-o6">Distance to preschool</label>
+                    </div>
+                    <div class="styled-input-single">
+                      <input type="checkbox" name="fb-q5-o7" id="fb-q5-o7" />
+                      <label for="fb-q5-o7">All of the above</label>
+                    </div>
+                  </div>
+
+                  <!-- Question 6 -->
+                  <span class="form-question"
+                    >6. Which learning pattern would you choose for your
+                    child?</span
+                  >
+                  <div class="styled-input-container styled-input--rounded">
+                    <div class="styled-input-single">
+                      <input type="checkbox" name="fb-q6-o1" id="fb-q6-o1" />
+                      <label for="fb-q6-o1"
+                        >Child can learn only as much suggested curriculum (for
+                        the age)</label
+                      >
+                    </div>
+                    <div class="styled-input-single">
+                      <input type="checkbox" name="fb-q6-o2" id="fb-q6-o2" />
+                      <label for="fb-q6-o2"
+                        >Child should be continue learning as much as child can
+                        grasp</label
+                      >
+                    </div>
+                  </div>
+
+                  <!-- Question 7 -->
+                  <span class="form-question"
+                    >7. What would be your preference for extra curricular
+                    activities in the school?</span
+                  >
+                  <div class="styled-input-container styled-input--rounded">
+                    <div class="styled-input-single">
+                      <input type="checkbox" name="fb-q7-o1" id="fb-q7-o1" />
+                      <label for="fb-q7-o1"
+                        >Preschools can only focus on curriculum</label
+                      >
+                    </div>
+                    <div class="styled-input-single">
+                      <input type="checkbox" name="fb-q7-o2" id="fb-q7-o2" />
+                      <label for="fb-q7-o2"
+                        >Preschools can have an overall exposure to the extra
+                        activities (as per age)</label
+                      >
+                    </div>
+                  </div>
+
+                  <!-- Question 8 -->
+                  <span class="form-question"
+                    >8. How much would you be willing to pay on your kid’s
+                    education?</span
+                  >
+                  <div
+                    class="styled-input-container styled-input--rounded"
+                    style="margin-bottom: 15px"
+                  >
+                    <div class="styled-input-single">
+                      <input type="checkbox" name="fb-q8-o1" id="fb-q8-o1" />
+                      <label for="fb-q8-o1">Less than Rs.5,000 per month</label>
+                    </div>
+                    <div class="styled-input-single">
+                      <input type="checkbox" name="fb-q8-o2" id="fb-q8-o2" />
+                      <label for="fb-q8-o2"
+                        >Between Rs.5,000 to 10,000 per month</label
+                      >
+                    </div>
+                    <div class="styled-input-single">
+                      <input type="checkbox" name="fb-q8-o3" id="fb-q8-o3" />
+                      <label for="fb-q8-o3">More than 10,000 per month</label>
+                    </div>
+                  </div>
+
+                  <!-- Parent Name -->
+                  <span class="form-question">Parent Name</span>
+                  <input
+                    type="text"
+                    name="parent-name"
+                    class="form-control input-field"
+                    placeholder="Parent Name"
+                    style="margin-bottom: 15px"
+                    required
+                  />
+
+                  <!-- Contact Number -->
+                  <span class="form-question">Contact Number</span>
+                  <input
+                    type="text"
+                    name="contact-number"
+                    class="form-control input-field"
+                    placeholder="Contact Number"
+                    style="margin-bottom: 15px"
+                    required
+                  />
+
+                  <!-- Email -->
+                  <span class="form-question">Email</span>
+                  <input
+                    type="email"
+                    name="email"
+                    class="form-control input-field"
+                    placeholder="Email"
+                    style="margin-bottom: 15px"
+                    required
+                  />
+
+                  <!-- Age of Child -->
+                  <span class="form-question">Age of Child</span>
+                  <input
+                    type="text"
+                    name="child-age"
+                    class="form-control input-field"
+                    placeholder="Age of Child"
+                    style="margin-bottom: 15px"
+                    required
+                  />
+
+                  <!-- Residential Location -->
+                  <span class="form-question">Residential Location</span>
+                  <input
+                    type="text"
+                    name="location"
+                    class="form-control input-field"
+                    placeholder="Residential Location"
+                    style="margin-bottom: 15px"
+                    required
+                  />
+
+                  <p>
+                    Thank you for your time. Your inputs will help us improve.
+                  </p>
+
+                  <button
+                    type="submit"
+                    id="submit_btn"
+                    value="Submit"
+                    class="btn center-block"
+                    style="float: right"
+                  >
+                    Submit
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <!-- Free Trial-->
             <div class="col-md-4 col-sm-12">
               <div class="service float">
                 <img
-                  src="img/service3.jpg"
+                  src="img/in-love.png"
                   alt=""
                   class="img-circle center-block img-responsive"
                 />
-                <h4>Free Trial!</h4>
-                <p>
-                  Lectus placerat a ultricies a, interdum donec eget metus
-                  auguen u Fusce mollis imperdiet interdum donec eget metus
-                  auguen unc vel lorem.
-                </p>
+                <h4>
+                  <a
+                    href="#modal-trial-form"
+                    style="text-decoration: none; color: #fff"
+                    >Free Trial!</a
+                  >
+                </h4>
+                <p>Will you be intrested in a free trial of Unschool?</p>
               </div>
             </div>
-            <!-- /col-md-4-->
-            <!-- item 3-->
+            <!-- Interested Form -->
+            <div id="modal-trial-form" class="modal-window">
+              <div>
+                <a href="#same-location" title="Close" class="modal-close">✕</a>
+                <h1>Intrested in trying Unschool for Free?</h1>
+                <form>
+                  <div class="styled-input-container styled-input--rounded">
+                    <div class="styled-input-single">
+                      <input type="radio" name="fb-q3-o1" id="fb-q3-o1" />
+                      <label for="fb-q3-o1">Yes. Definitely! 😀</label>
+                    </div>
+                    <div class="styled-input-single">
+                      <input type="radio" name="fb-q3-o2" id="fb-q3-o2" />
+                      <label for="fb-q3-o2">Not really 🙄</label>
+                    </div>
+                  </div>
+                  <button
+                    type="submit"
+                    id="submit_btn"
+                    value="Submit"
+                    class="btn center-block"
+                    style="float: right"
+                  >
+                    Submit
+                  </button>
+                </form>
+              </div>
+            </div>
           </div>
           <!-- /row -->
         </div>
@@ -897,14 +1270,16 @@
             <div class="contact-info" style="margin-top: 12.5%">
               <p>
                 <i class="fa fa-envelope margin-icon"></i
-                ><a href="mailto:youremailaddress">daycare@site.com</a>
+                ><a href="mailto:youremailaddress">contact@unschool.com</a>
               </p>
               <br />
-              <p><i class="fa fa-phone margin-icon"></i>Call us +1 456 7890</p>
+              <p>
+                <i class="fa fa-phone margin-icon"></i>Call us +91 98765 43210
+              </p>
               <br />
               <p>
                 <i class="fa fa-map-marker margin-icon"></i>
-                Imaginary Fun City, 304.
+                Office Address, City Name, Singapore.
               </p>
             </div>
             <!-- address info -->
