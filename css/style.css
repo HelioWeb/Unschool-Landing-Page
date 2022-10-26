@@ -1605,7 +1605,8 @@ hr {
 }
 /* Img Shapes */
 .img-circle {
-  box-shadow: 6px 6px 0px rgba(103, 102, 102, 0.2);
+  /* box-shadow: 6px 6px 0px rgba(103, 102, 102, 0.2); */
+  border: 4px solid #333333;
 }
 .img-rounded {
   box-shadow: 6px 6px 0px rgba(103, 102, 102, 0.2);
@@ -3206,7 +3207,7 @@ textarea.form-control:focus {
   }
   .header-text {
     top: 30% !important;
-    padding: 5px! 0 5px !important;
+    padding: 5px 0 5px !important;
   }
   .header-text h1 {
     font-size: 20px !important;

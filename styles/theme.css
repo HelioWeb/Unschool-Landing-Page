@@ -180,7 +180,6 @@ section.color-section,
 .blog-row,
 #activities .tab-content,
 .color_block,
-.cloud-divider,
 #blog-page blockquote,
 #layerslider,
 .comment,
@@ -190,9 +189,12 @@ section.color-section,
 }
 
 /* SVG Path */
+.cloud-divider,
 #deco-clouds1.head path {
-  fill: #f5f5f9;
-  stroke: #f5f5f9;
+  /* fill: #f5f5f9; */
+  /* stroke: #f5f5f9; */
+  fill: #ffffff;
+  stroke: #ffffff;
 }
 
 .breadcrumb > .active {
