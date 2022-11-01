@@ -880,6 +880,17 @@ blockquote small:before {
 }
 /* =========================== --- Activities ============================ */
 #about {
+  position: relative;
+}
+
+.aboutSectionDiv::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0.4;
   background-image: url(../img/bgdots.png), url(../img/bgdots2.png);
   background-position: center left, center right;
   background-repeat: no-repeat;
