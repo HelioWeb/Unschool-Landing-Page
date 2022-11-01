@@ -788,6 +788,12 @@ i {
   padding: 10px;
   vertical-align: middle;
 }
+#preschool .media i {
+  font-size: 90px;
+  margin: 20px;
+  padding: 10px;
+  vertical-align: middle;
+}
 .row.features {
   margin: 40px 0 40px;
 }
@@ -994,7 +1000,7 @@ blockquote small:before {
 }
 /*=========================== Latest Blog Posts & Blog Pages ============================ */
 /*Latest Blog posts */
-#latestblog {
+#blogs {
   background-image: url(../img/bg1.png);
   background-position: center;
   background-repeat: repeat-x;

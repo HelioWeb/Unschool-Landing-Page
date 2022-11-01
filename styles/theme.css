@@ -119,11 +119,11 @@ a:focus,
   color: var(--secondary);
 }
 
-#about .media i {
+#preschool .media i {
   color: var(--primary);
 }
 
-#about .media i:hover {
+#preschool .media i:hover {
   color: var(--tertiary);
 }
 
