@@ -3,13 +3,15 @@
 ============================ */
 
 :root {
-  --primary: #61b4db;
-  --secondary: #50c5b7;
-  --tertiary: #f0f465;
-  --highlight: #9dec58;
+  --primary: #ed8f8f;
+  --secondary: #5dced5;
+  --tertiary: #e0c06c;
 }
 
-footer,
+footer {
+  background-color: var(--primary);
+}
+
 .nav-pills > li > a,
 .nav.nav-tabs > li > a,
 .navbar-custom ul.nav ul.dropdown-menu,
@@ -55,8 +57,10 @@ a,
 
 /* SVG path */
 #deco-clouds path {
-  fill: #1b5f79;
-  stroke: #1b5f79;
+  /* fill: #1b5f79; */
+  /* stroke: #1b5f79; */
+  fill: var(--primary);
+  stroke: var(--primary);
 }
 
 /*________  Red _______  */
@@ -111,9 +115,16 @@ a:focus,
 .breadcrumb a:hover,
 .breadcrumb a:focus,
 .media-heading small,
-#about .media i,
 .latest-caption h4:hover {
   color: var(--secondary);
+}
+
+#about .media i {
+  color: var(--primary);
+}
+
+#about .media i:hover {
+  color: var(--tertiary);
 }
 
 .btn {
@@ -127,7 +138,6 @@ a:focus,
 }
 
 h2:before,
-#about .media i:hover,
 footer i,
 .smaller.social-media a i:hover,
 footer a,
@@ -160,6 +170,13 @@ footer a,
 .date-category,
 .dropdown-menu > li > a:focus,
 .dropdown-menu > li > a:hover {
+  background-color: var(--tertiary);
+}
+
+.nav-pills .nav > li > a:focus,
+.navbar-brand-centered,
+.navbar-header,
+.navbar-collapse {
   background-color: var(--primary);
 }
 
@@ -173,7 +190,7 @@ footer a,
 .header-text,
 .open > .dropdown-toggle.btn-default:focus,
 .open > .dropdown-toggle.btn-default:hover {
-  border-color: var(--primary);
+  border-color: var(--tertiary);
 }
 
 section.color-section,
