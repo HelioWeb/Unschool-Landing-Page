@@ -1622,7 +1622,7 @@ hr {
 /* Img Shapes */
 .img-circle {
   /* box-shadow: 6px 6px 0px rgba(103, 102, 102, 0.2); */
-  border: 4px solid #333333;
+  /* border: 4px solid #333333; */
 }
 .img-rounded {
   box-shadow: 6px 6px 0px rgba(103, 102, 102, 0.2);
