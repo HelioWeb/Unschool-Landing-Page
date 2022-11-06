@@ -392,6 +392,7 @@ i {
   text-align: center;
   padding: 30px;
   border-radius: 20px;
+  margin-bottom: 20px;
 }
 .service h4 {
   text-align: center;
@@ -774,7 +775,7 @@ i {
   border: 10px solid;
 }
 .team-image {
-  background-image: url(../img/kidsbg.png);
+  /* background-image: url(../img/kidsbg.png); */
   padding: 4rem;
 }
 .team-image img {
