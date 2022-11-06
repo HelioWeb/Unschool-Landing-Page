@@ -27,7 +27,7 @@
 
 :root {
   --primary: #ed8f8f;
-  --secondary: #5dced5;
+  --secondary: #36a6ae;
   --tertiary: #e0c06c;
 }
 
@@ -881,6 +881,7 @@ blockquote small:before {
 /* =========================== --- Activities ============================ */
 #about {
   position: relative;
+  /* margin-top: 10px; */
 }
 
 .aboutSectionDiv::before {
@@ -1610,6 +1611,7 @@ hr {
 /* Sections heading */
 .section-heading {
   margin-bottom: 90px;
+  margin-top: 50px;
   text-align: center;
   z-index: 99;
 }
@@ -3054,12 +3056,12 @@ textarea.form-control:focus {
 /************ min width 768px *************/
 @media (min-width: 768px) {
   #navbar-brand-centered .container {
-    min-width: 700px !important;
-    max-width: 800px;
+    min-width: 800px !important;
+    max-width: 830px;
     width: 100%;
   }
   .navbar-right {
-    margin-right: 0px;
+    margin-left: 30px;
   }
   /************ max width 767px *************/
   @media (max-width: 767px) {
