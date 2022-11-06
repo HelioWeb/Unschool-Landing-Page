@@ -4,12 +4,8 @@
 
 :root {
   --primary: #ed8f8f;
-  --secondary: #5dced5;
+  --secondary: #36a6ae;
   --tertiary: #e0c06c;
-}
-
-footer {
-  background-color: var(--primary);
 }
 
 .nav-pills > li > a,
@@ -59,8 +55,16 @@ a,
 #deco-clouds path {
   /* fill: #1b5f79; */
   /* stroke: #1b5f79; */
-  fill: var(--primary);
-  stroke: var(--primary);
+  fill: var(--secondary);
+  stroke: var(--secondary);
+}
+
+footer {
+  background-color: var(--secondary);
+}
+
+.social-media a i {
+  background-color: var(--primary);
 }
 
 /*________  Red _______  */
@@ -75,7 +79,6 @@ h2,
 .owl-prev,
 .owl-next,
 .pager li > a:hover,
-.social-media a i,
 .back-to-top i:hover,
 .pagination > li > a:hover,
 .pagination > li > a:focus,
@@ -120,11 +123,11 @@ a:focus,
 }
 
 #preschool .media i {
-  color: var(--primary);
+  color: var(--tertiary);
 }
 
 #preschool .media i:hover {
-  color: var(--tertiary);
+  color: var(--primary);
 }
 
 .btn {
