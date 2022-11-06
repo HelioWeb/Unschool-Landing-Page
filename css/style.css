@@ -407,12 +407,12 @@ i {
   margin-bottom: 10px;
 }
 /* =========================== Call Out ============================ */
-#callout {
-  background-color: #59b2dc;
+#interactions {
+  background-color: #a5d7ee;
   position: relative;
   overflow: hidden;
 }
-#callout .container {
+#interactions .container {
   position: relative;
   overflow: hidden;
   background-image: url(../img/dummy-callout.png);
@@ -1258,11 +1258,11 @@ blockquote small:before {
   vertical-align: 0.2em;
 }
 /*=========================== Prices ============================ */
-#interactions {
+/* #interactions {
   background-image: url(../img/bgcity.png);
   background-position: bottom center;
   background-repeat: repeat-x;
-}
+} */
 #prices .col-lg-4 {
   padding: 0px;
 }
@@ -1478,6 +1478,14 @@ footer img {
   position: absolute;
   top: auto;
   left: 0;
+  z-index: 99;
+}
+.parallax-object-sun {
+  position: absolute;
+  top: auto;
+  margin-top: 100px;
+  left: 0;
+  margin-left: 60px;
   z-index: 99;
 }
 /* Owl-carousel */
@@ -3088,7 +3096,7 @@ textarea.form-control:focus {
     .ls-bottom-nav-wrapper {
       margin-top: 0px !important;
     }
-    #callout .container {
+    #interactions .container {
       background-image: none;
     }
   }
