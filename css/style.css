@@ -891,8 +891,8 @@ blockquote small:before {
   bottom: 0;
   right: 0;
   opacity: 0.4;
-  background-image: url(../img/bgdots.png), url(../img/bgdots2.png);
-  background-position: center left, center right;
+  background-image: url(../img/test-about-bg.png);
+  background-position: bottom left;
   background-repeat: no-repeat;
 }
 #activities .tab-content {
@@ -2865,6 +2865,9 @@ textarea.form-control:focus {
 }
 /************ max width 1200px *************/
 @media (max-width: 1200px) {
+  .aboutSectionDiv::before {
+    background-image: none;
+  }
   .navbar-nav > li > a {
     padding: 10px 10px;
   }
