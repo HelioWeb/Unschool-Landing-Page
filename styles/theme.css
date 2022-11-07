@@ -5,7 +5,7 @@
 :root {
   --primary: #ed8f8f;
   --secondary: #36a6ae;
-  --tertiary: #e0c06c;
+  --tertiary: #efc546;
 }
 
 .nav-pills > li > a,
@@ -113,6 +113,31 @@ h2,
   background-color: var(--secondary);
 }
 
+.navbar-brand-centered:hover,
+.navbar-brand-centered:focus,
+.navbar-toggle:focus,
+.navbar-toggle:active,
+.navbar-toggle:hover,
+.navbar-custom ul.nav li a:hover,
+.navbar-custom .nav > .active > a,
+.navbar-custom ul.nav ul.dropdown-menu li a:hover,
+.navbar-custom ul.nav ul.dropdown-menu li a:focus,
+.nav .open > a,
+.nav .open > a:focus,
+.nav .open > a:hover,
+.pagination > .active > a,
+.pagination > .active > a:focus,
+.nav-pills > li.active > a,
+.nav.nav-pills > li > a:focus,
+.nav.nav-pills > li > a:hover,
+.nav.nav-pills > li > .active,
+.nav.nav-tabs > li > a:hover,
+.nav.nav-tabs > li.active > a:hover,
+.nav.nav-tabs > li.active > a:focus,
+.nav.nav-tabs > li.active > a {
+  background-color: var(--primary);
+}
+
 a:hover,
 a:focus,
 .breadcrumb a:hover,
@@ -180,7 +205,7 @@ footer a,
 .navbar-brand-centered,
 .navbar-header,
 .navbar-collapse {
-  background-color: var(--primary);
+  background-color: var(--secondary);
 }
 
 .team-item img,
