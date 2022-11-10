@@ -1033,11 +1033,13 @@ blockquote small:before {
 .blog-preview img {
   min-width: 110% !important;
   margin: 0px 0px 0px -20px;
+  max-height: 225px;
 }
 .blog-preview .latest-caption {
   padding: 0 25px 35px;
   position: relative;
   transition: all 0.2s ease-in-out;
+  height: 335px;
 }
 .blog-preview .latest-caption:before {
   position: absolute;
@@ -1053,6 +1055,14 @@ blockquote small:before {
 }
 .blog-preview .latest-caption:before {
   border-color: transparent transparent transparent #fff;
+}
+.latest-caption a h4 {
+  font-size: 24px;
+}
+.latest-caption .btn {
+  position: absolute;
+  bottom: 30px;
+  right: 25%;
 }
 .blog-preview h5 {
   margin: 0 0 10px;
