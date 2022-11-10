@@ -63,7 +63,8 @@ footer {
   background-color: var(--secondary);
 }
 
-.social-media a i {
+.social-media a i,
+.back-to-top i:hover {
   background-color: var(--primary);
 }
 
@@ -79,7 +80,6 @@ h2,
 .owl-prev,
 .owl-next,
 .pager li > a:hover,
-.back-to-top i:hover,
 .pagination > li > a:hover,
 .pagination > li > a:focus,
 .pager li > a:hover,
@@ -174,7 +174,10 @@ footer a,
   color: var(--primary);
 }
 
-.service:hover h4,
+.service:hover h4 {
+  background: var(--primary);
+}
+
 .open > .dropdown-toggle.btn-primary:focus,
 .open > .dropdown-toggle.btn-primary:hover,
 .team-item .team-caption,
