@@ -214,3 +214,13 @@ jQuery(function ($) {
     return false;
   });
 });
+
+$(window).click(function (e) {
+  if ($(e.target).hasClass("modal-window")) {
+    console.log("matched");
+
+    window.location = "/#modal-close";
+  } else {
+    console.log("wrong class");
+  }
+});
