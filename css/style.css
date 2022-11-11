@@ -367,7 +367,7 @@ i {
   text-align: center;
   border-radius: 50%;
   cursor: pointer;
-  font-size: 2rem;
+  font-size: 2.5rem;
   opacity: 0.4;
 }
 .active-play {
@@ -3113,10 +3113,16 @@ textarea.form-control:focus {
   .contact-information {
     flex-direction: column;
   }
+  .home-video-play-button {
+    font-size: 1.5rem;
+  }
 }
 /************ max width 480px *************/
 @media (max-width: 480px) {
   /* slider */
+  .home-video-play-button {
+    font-size: 1rem;
+  }
   #layerslider {
     height: 190px !important;
   }
