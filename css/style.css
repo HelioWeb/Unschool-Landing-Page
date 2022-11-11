@@ -1062,7 +1062,7 @@ blockquote small:before {
 .latest-caption .btn {
   position: absolute;
   bottom: 30px;
-  right: 25%;
+  transform: translate(-50%, 0);
 }
 .blog-preview h5 {
   margin: 0 0 10px;
