@@ -57,9 +57,10 @@
     <!-- JS script for form submission -->
     <script>
       function handleFeedBack() {
-        console.log("in handle feedback");
+        var isValid = true;
         var curriculum = [];
         var profGuidance = [];
+        var criteria = [];
         var regEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g; //Javascript reGex for Email Validation.
 
         var parentName = document.getElementById("parent-name").value;
@@ -73,6 +74,11 @@
         var parentAttendOutdoorsActivities = document.querySelector(
           'input[name="fb-q3-o1"]:checked'
         );
+        var learningPattern = document.querySelector(
+          'input[name="fb-q6-o1"]:checked'
+        );
+        var extraC = document.querySelector('input[name="fb-q7-o1"]:checked');
+        var preferBatch = [];
 
         // Question 1
         var ch1 = document.getElementById("fb-q1-o1");
@@ -102,6 +108,7 @@
 
         if (curriculum.length === 0) {
           document.getElementById("q1-message").style.visibility = "visible";
+          isValid = false;
         } else {
           document.getElementById("q1-message").style.visibility = "hidden";
         }
@@ -110,6 +117,7 @@
 
         if (parentAttendSchool === null) {
           document.getElementById("q2-message").style.visibility = "visible";
+          isValid = false;
         } else {
           parentAttendSchool = parentAttendSchool.value;
           document.getElementById("q2-message").style.visibility = "hidden";
@@ -118,6 +126,7 @@
         // -------------------Question 3
         if (parentAttendOutdoorsActivities === null) {
           document.getElementById("q3-message").style.visibility = "visible";
+          isValid = false;
         } else {
           parentAttendOutdoorsActivities = parentAttendOutdoorsActivities.value;
           document.getElementById("q3-message").style.visibility = "hidden";
@@ -152,18 +161,106 @@
         if (ch2.checked) {
           profGuidance.push(ch2.value);
         }
+        ch2 = document.getElementById("fb-q4-o8");
+        if (ch2.checked) {
+          profGuidance.push(ch2.value);
+        }
 
         if (profGuidance.length === 0) {
           document.getElementById("q4-message").style.visibility = "visible";
+          isValid = false;
         } else {
           document.getElementById("q4-message").style.visibility = "hidden";
         }
-        console.log(profGuidance)
+
+        // -------------------- Question 5
+        var ch3 = document.getElementById("fb-q5-o1");
+        if (ch3.checked) {
+          criteria.push(ch3.value);
+        }
+        ch3 = document.getElementById("fb-q5-o2");
+        if (ch3.checked) {
+          criteria.push(ch3.value);
+        }
+        ch3 = document.getElementById("fb-q5-o3");
+        if (ch3.checked) {
+          criteria.push(ch3.value);
+        }
+        ch3 = document.getElementById("fb-q5-o4");
+        if (ch3.checked) {
+          criteria.push(ch3.value);
+        }
+        ch3 = document.getElementById("fb-q5-o5");
+        if (ch3.checked) {
+          criteria.push(ch3.value);
+        }
+        ch3 = document.getElementById("fb-q5-o6");
+        if (ch3.checked) {
+          criteria.push(ch3.value);
+        }
+        ch3 = document.getElementById("fb-q5-o7");
+        if (ch3.checked) {
+          criteria.push(ch3.value);
+        }
+
+        if (criteria.length === 0) {
+          document.getElementById("q5-message").style.visibility = "visible";
+          isValid = false;
+        } else {
+          document.getElementById("q5-message").style.visibility = "hidden";
+        }
+
+        // ---------------- Question 6
+
+        if (learningPattern === null) {
+          document.getElementById("q6-message").style.visibility = "visible";
+          isValid = false;
+        } else {
+          learningPattern = learningPattern.value;
+          document.getElementById("q6-message").style.visibility = "hidden";
+        }
+
+        // ---------------- Question 7
+
+        if (extraC === null) {
+          document.getElementById("q7-message").style.visibility = "visible";
+          isValid = false;
+        } else {
+          extraC = extraC.value;
+          document.getElementById("q7-message").style.visibility = "hidden";
+        }
+
+        // -------------------- Question 8
+        var ch4 = document.getElementById("fb-q8-o1");
+        if (ch4.checked) {
+          preferBatch.push(ch4.value);
+        }
+
+        ch4 = document.getElementById("fb-q8-o2");
+        if (ch4.checked) {
+          preferBatch.push(ch4.value);
+        }
+        ch4 = document.getElementById("fb-q8-o3");
+        if (ch4.checked) {
+          preferBatch.push(ch4.value);
+        }
+        ch4 = document.getElementById("fb-q8-o4");
+        if (ch4.checked) {
+          preferBatch.push(ch4.value);
+        }
+
+        if (preferBatch.length === 0) {
+          document.getElementById("q8-message").style.visibility = "visible";
+          isValid = false;
+        } else {
+          document.getElementById("q8-message").style.visibility = "hidden";
+        }
 
         // Text Fields
         if (parentName === "") {
           document.getElementById("parent-name-message").style.visibility =
             "visible";
+          isValid = false;
         } else {
           document.getElementById("parent-name-message").style.visibility =
             "hidden";
@@ -171,6 +268,7 @@
         if (contact === "" || contact.length < 10) {
           document.getElementById("contact-number-message").style.visibility =
             "visible";
+          isValid = false;
         } else {
           document.getElementById("contact-number-message").style.visibility =
             "hidden";
@@ -178,6 +276,7 @@
 
         if (email === "" || !regEmail.test(email)) {
           document.getElementById("email-message").style.visibility = "visible";
+          isValid = false;
         } else {
           document.getElementById("email-message").style.visibility = "hidden";
         }
@@ -185,6 +284,7 @@
         if (age === "" || parseInt(age) < 2 || parseInt(age) > 16) {
           document.getElementById("child-age-message").style.visibility =
             "visible";
+          isValid = false;
         } else {
           document.getElementById("child-age-message").style.visibility =
             "hidden";
@@ -193,13 +293,62 @@
         if (location === "") {
           document.getElementById("location-message").style.visibility =
             "visible";
+          isValid = false;
         } else {
           document.getElementById("location-message").style.visibility =
             "hidden";
         }
 
-        console.log("Submit form");
-        return false;
+
+        if (isValid) {
+          document.getElementById("submit_btn").innerHTML = "Submitting";
+          let data = {
+            parentName: parentName,
+            contactNumber: contact,
+            email: email,
+            childAge: age,
+            residentialLocation: location,
+            survey: {
+              curriculum: curriculum,
+              parentAttendSchool: parentAttendSchool,
+              parentAttendOutdoorsActivities: parentAttendOutdoorsActivities,
+              professionalGuidance: profGuidance,
+              schoolSelectionCriteria: criteria,
+              learningPattern: learningPattern,
+              extraCurricularActivities: extraC,
+              preferedPreschoolBatch: preferBatch,
+            },
+          };
+
+          // axios function-----
+          const url =
+            "https://virtserver.swaggerhub.com/hdk-pnchl/raisingRightSurveyform/1.0.0/survey";
+          const params = {
+            headers: {
+              "content-type": "application/json; charset=UTF-8",
+            },
+            body: data,
+            method: "POST",
+          };
+
+          fetch(url, params)
+            .then((data) => {
+              console.log(data);
+              document.getElementById("success-message-1").style.visibility =
+                "visible";
+              timeout = setTimeout(() => {
+                window.location.replace("#close-modal");
+                window.location.reload();
+              }, 3000);
+              document.getElementById("submit_btn").innerHTML = "Submit";
+            })
+            .catch((err) => {
+              console.log(err, "error in submitting data");
+            });
+        } else {
+          return false;
+          document.getElementById("submit_btn").innerHTML = "Submit";
+        }
       }
     </script>
   </head>
@@ -1196,7 +1345,7 @@
                         type="checkbox"
                         name="fb-q1-o1"
                         id="fb-q1-o1"
-                        value="Basic Syllabus"
+                        value="basicSyllabus"
                       />
                       <label for="fb-q1-o1">Basic Syllabus</label>
                     </div>
@@ -1205,7 +1354,7 @@
                         type="checkbox"
                         name="fb-q1-o2"
                         id="fb-q1-o2"
-                        value="Art and Craft"
+                        value="artAndCraft"
                       />
                       <label for="fb-q1-o2">Art and craft</label>
                     </div>
@@ -1214,7 +1363,7 @@
                         type="checkbox"
                         name="fb-q1-o3"
                         id="fb-q1-o3"
-                        value="Music and Rythm"
+                        value="musicAndRythm"
                       />
                       <label for="fb-q1-o3">Music and Rythm</label>
                     </div>
@@ -1223,7 +1372,7 @@
                         type="checkbox"
                         name="fb-q1-o4"
                         id="fb-q1-o4"
-                        value="Fitness and eye/hand coordination"
+                        value="fitnessEyeHandCoordination"
                       />
                       <label for="fb-q1-o4"
                         >Fitness and eye/hand coordination</label
@@ -1234,7 +1383,7 @@
                         type="checkbox"
                         name="fb-q1-o5"
                         id="fb-q1-o5"
-                        value="Speech Vocabulary"
+                        value="speechVocabulary"
                       />
                       <label for="fb-q1-o5">Speech Vocabulary</label>
                     </div>
@@ -1243,7 +1392,7 @@
                         type="checkbox"
                         name="fb-q1-o6"
                         id="fb-q1-o6"
-                        value="All of the above"
+                        value="allOfTheAbove"
                       />
                       <label for="fb-q1-o6">All of the above</label>
                     </div>
@@ -1266,7 +1415,7 @@
                         type="radio"
                         name="fb-q2-o1"
                         id="fb-q2-o1"
-                        value="Once a week"
+                        value="onceWeek"
                       />
                       <label for="fb-q2-o1">Once a week</label>
                     </div>
@@ -1275,7 +1424,7 @@
                         type="radio"
                         name="fb-q2-o1"
                         id="fb-q2-o2"
-                        value="Once in 2 weeks"
+                        value="once2Weeks"
                       />
                       <label for="fb-q2-o2">Once in 2 weeks</label>
                     </div>
@@ -1284,9 +1433,18 @@
                         type="radio"
                         name="fb-q2-o1"
                         id="fb-q2-o3"
-                        value="Once a month"
+                        value="onceMonth"
                       />
                       <label for="fb-q2-o3">Once a month</label>
+                    </div>
+                    <div class="styled-input-single">
+                      <input
+                        type="radio"
+                        name="fb-q2-o1"
+                        id="fb-q2-o4"
+                        value="wishNotToVisit"
+                      />
+                      <label for="fb-q2-o4">Wish not to visit</label>
                     </div>
                   </div>
                   <div
@@ -1307,29 +1465,40 @@
                         type="radio"
                         name="fb-q3-o1"
                         id="fb-q3-o1"
-                        value="Once in 2 weeks"
+                        value="onceWeek"
                       />
-                      <label for="fb-q3-o1">Once in 2 weeks</label>
+                      <label for="fb-q3-o1">Once a week</label>
                     </div>
+
                     <div class="styled-input-single">
                       <input
                         type="radio"
                         name="fb-q3-o1"
                         id="fb-q3-o2"
-                        value="Once a month"
+                        value="once2Weeks"
                       />
-                      <label for="fb-q3-o2">Once a month</label>
+                      <label for="fb-q3-o2">Once 2 weeks</label>
                     </div>
                     <div class="styled-input-single">
                       <input
                         type="radio"
                         name="fb-q3-o1"
                         id="fb-q3-o3"
-                        value="Once in 2 months"
+                        value="onceMonth"
                       />
-                      <label for="fb-q3-o3">Once in 2 months</label>
+                      <label for="fb-q3-o3">Once a month</label>
+                    </div>
+                    <div class="styled-input-single">
+                      <input
+                        type="radio"
+                        name="fb-q3-o1"
+                        id="fb-q3-o4"
+                        value="wishNotToVisit"
+                      />
+                      <label for="fb-q3-o4">Wish not to visit</label>
                     </div>
                   </div>
+
                   <div
                     id="q3-message"
                     style="visibility: hidden; color: red; margin-bottom: 7px"
@@ -1344,35 +1513,75 @@
                   >
                   <div class="styled-input-container styled-input--rounded">
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q4-o1" id="fb-q4-o1" value="Syllabus revision techniques"/>
+                      <input
+                        type="checkbox"
+                        name="fb-q4-o1"
+                        id="fb-q4-o1"
+                        value="syllabusRevisionTechniques"
+                      />
                       <label for="fb-q4-o1">Syllabus revision techniques</label>
                     </div>
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q4-o2" id="fb-q4-o2" value="Daily routine"/>
+                      <input
+                        type="checkbox"
+                        name="fb-q4-o2"
+                        id="fb-q4-o2"
+                        value="dailyRoutine"
+                      />
                       <label for="fb-q4-o2">Daily routine</label>
                     </div>
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q4-o3" id="fb-q4-o3" value="Behavioural observation" />
+                      <input
+                        type="checkbox"
+                        name="fb-q4-o3"
+                        id="fb-q4-o3"
+                        value="behaviouralObservation"
+                      />
                       <label for="fb-q4-o3">Behavioural observation</label>
                     </div>
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q4-o4" id="fb-q4-o4" value="Discipline" />
+                      <input
+                        type="checkbox"
+                        name="fb-q4-o4"
+                        id="fb-q4-o4"
+                        value="discipline"
+                      />
                       <label for="fb-q4-o4">Discipline</label>
                     </div>
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q4-o5" id="fb-q4-o5" value="Temper issues"/>
+                      <input
+                        type="checkbox"
+                        name="fb-q4-o5"
+                        id="fb-q4-o5"
+                        value="temperIssues"
+                      />
                       <label for="fb-q4-o5">Temper issues</label>
                     </div>
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q4-o6" id="fb-q4-o6" value="Keeping child engaged longer"/>
+                      <input
+                        type="checkbox"
+                        name="fb-q4-o6"
+                        id="fb-q4-o6"
+                        value="keepingChildEngagedLonger"
+                      />
                       <label for="fb-q4-o6">Keeping child engaged longer</label>
                     </div>
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q4-o7" id="fb-q4-o7" value="Learning encouragement"/>
+                      <input
+                        type="checkbox"
+                        name="fb-q4-o7"
+                        id="fb-q4-o7"
+                        value="learningEncouragement"
+                      />
                       <label for="fb-q4-o7">Learning encouragement</label>
                     </div>
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q4-o8" id="fb-q4-o8" value="All of the above"/>
+                      <input
+                        type="checkbox"
+                        name="fb-q4-o8"
+                        id="fb-q4-o8"
+                        value="allOfTheAbove"
+                      />
                       <label for="fb-q4-o8">All of the above</label>
                     </div>
                   </div>
@@ -1390,33 +1599,74 @@
                   >
                   <div class="styled-input-container styled-input--rounded">
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q5-o1" id="fb-q5-o1" />
+                      <input
+                        type="checkbox"
+                        name="fb-q5-o1"
+                        id="fb-q5-o1"
+                        value="curriculum"
+                      />
                       <label for="fb-q5-o1">Curriculum</label>
                     </div>
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q5-o2" id="fb-q5-o2" />
+                      <input
+                        type="checkbox"
+                        name="fb-q5-o2"
+                        id="fb-q5-o2"
+                        value="teacherQualification"
+                      />
                       <label for="fb-q5-o2">Teacher qualification</label>
                     </div>
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q5-o3" id="fb-q5-o3" />
+                      <input
+                        type="checkbox"
+                        name="fb-q5-o3"
+                        id="fb-q5-o3"
+                        value="extraCurricularActivities"
+                      />
                       <label for="fb-q5-o3">Extra curricular activities</label>
                     </div>
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q5-o4" id="fb-q5-o4" />
+                      <input
+                        type="checkbox"
+                        name="fb-q5-o4"
+                        id="fb-q5-o4"
+                        value="safety"
+                      />
                       <label for="fb-q5-o4">Safety</label>
                     </div>
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q5-o5" id="fb-q5-o5" />
+                      <input
+                        type="checkbox"
+                        name="fb-q5-o5"
+                        id="fb-q5-o5"
+                        value="studentToTeacherRatio"
+                      />
                       <label for="fb-q5-o5">Student to teacher ratio</label>
                     </div>
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q5-o6" id="fb-q5-o6" />
+                      <input
+                        type="checkbox"
+                        name="fb-q5-o6"
+                        id="fb-q5-o6"
+                        value="distanceToPreschool"
+                      />
                       <label for="fb-q5-o6">Distance to preschool</label>
                     </div>
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q5-o7" id="fb-q5-o7" />
+                      <input
+                        type="checkbox"
+                        name="fb-q5-o7"
+                        id="fb-q5-o7"
+                        value="allOfTheAbove"
+                      />
                       <label for="fb-q5-o7">All of the above</label>
                     </div>
+                  </div>
+                  <div
+                    id="q5-message"
+                    style="visibility: hidden; color: red; margin-bottom: 7px"
+                  >
+                    Please Select one value
                   </div>
 
                   <!-- Question 6 -->
@@ -1426,19 +1676,35 @@
                   >
                   <div class="styled-input-container styled-input--rounded">
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q6-o1" id="fb-q6-o1" />
+                      <input
+                        type="radio"
+                        name="fb-q6-o1"
+                        id="fb-q6-o1"
+                        value="suggestedCurriculum"
+                      />
                       <label for="fb-q6-o1"
                         >Child can learn only as much suggested curriculum (for
                         the age)</label
                       >
                     </div>
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q6-o2" id="fb-q6-o2" />
+                      <input
+                        type="radio"
+                        name="fb-q6-o1"
+                        id="fb-q6-o2"
+                        value="asChildCanGrasp"
+                      />
                       <label for="fb-q6-o2"
                         >Child should be continue learning as much as child can
                         grasp</label
                       >
                     </div>
+                  </div>
+                  <div
+                    id="q6-message"
+                    style="visibility: hidden; color: red; margin-bottom: 7px"
+                  >
+                    Please Select one value
                   </div>
 
                   <!-- Question 7 -->
@@ -1448,43 +1714,86 @@
                   >
                   <div class="styled-input-container styled-input--rounded">
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q7-o1" id="fb-q7-o1" />
+                      <input
+                        type="radio"
+                        name="fb-q7-o1"
+                        id="fb-q7-o1"
+                        value="focusOnCurriculum"
+                      />
                       <label for="fb-q7-o1"
                         >Preschools can only focus on curriculum</label
                       >
                     </div>
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q7-o2" id="fb-q7-o2" />
+                      <input
+                        type="radio"
+                        name="fb-q7-o1"
+                        id="fb-q7-o2"
+                        value="exposureToExtraActivities"
+                      />
                       <label for="fb-q7-o2"
                         >Preschools can have an overall exposure to the extra
                         activities (as per age)</label
                       >
                     </div>
                   </div>
+                  <div
+                    id="q7-message"
+                    style="visibility: hidden; color: red; margin-bottom: 7px"
+                  >
+                    Please Select one value
+                  </div>
 
                   <!-- Question 8 -->
                   <span class="form-question"
-                    >8. How much would you be willing to pay on your kid’s
-                    education?</span
+                    >8. What is your preferred Preschool Batch?</span
                   >
                   <div
                     class="styled-input-container styled-input--rounded"
                     style="margin-bottom: 15px"
                   >
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q8-o1" id="fb-q8-o1" />
-                      <label for="fb-q8-o1">Less than Rs.5,000 per month</label>
+                      <input
+                        type="checkbox"
+                        name="fb-q8-o1"
+                        id="fb-q8-o1"
+                        value="morning9to12"
+                      />
+                      <label for="fb-q8-o1">Morning 9 to 12</label>
                     </div>
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q8-o2" id="fb-q8-o2" />
-                      <label for="fb-q8-o2"
-                        >Between Rs.5,000 to 10,000 per month</label
-                      >
+                      <input
+                        type="checkbox"
+                        name="fb-q8-o2"
+                        id="fb-q8-o2"
+                        value="afternoon12To4"
+                      />
+                      <label for="fb-q8-o2">Afternoon 12 to 4</label>
                     </div>
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q8-o3" id="fb-q8-o3" />
-                      <label for="fb-q8-o3">More than 10,000 per month</label>
+                      <input
+                        type="checkbox"
+                        name="fb-q8-o3"
+                        id="fb-q8-o3"
+                        value="evening4To7"
+                      />
+                      <label for="fb-q8-o3">Evening 4 to 7</label>
                     </div>
+                    <div class="styled-input-single">
+                      <input
+                        type="checkbox"
+                        name="fb-q8-o4"
+                        id="fb-q8-o4"
+                        value="anyOfTheAbove"
+                      />
+                      <label for="fb-q8-o4">Any of the Above</label>
+                    </div>
+                  </div>
+                  <div
+                    id="q8-message"
+                    style="visibility: hidden; color: red; margin-bottom: 7px"
+                  >
+                    Please Select one value
                   </div>
 
                   <!-- Parent Name -->
@@ -1582,6 +1891,16 @@
                   <p>
                     Thank you for your time. Your inputs will help us improve.
                   </p>
+                  <div
+                    id="success-message-1"
+                    style="
+                      visibility: hidden;
+                      color: rgb(43, 170, 12);
+                      margin-bottom: 5px;
+                    "
+                  >
+                    Thank you! Your response has been recorded!
+                  </div>
 
                   <button
                     type="submit"
