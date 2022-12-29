@@ -53,6 +53,155 @@
       href="/apple-touch-icon-114x114.png"
     />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+    <!-- JS script for form submission -->
+    <script>
+      function handleFeedBack() {
+        console.log("in handle feedback");
+        var curriculum = [];
+        var profGuidance = [];
+        var regEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g; //Javascript reGex for Email Validation.
+
+        var parentName = document.getElementById("parent-name").value;
+        var contact = document.getElementById("contact-number").value;
+        var email = document.getElementById("email").value;
+        var age = document.getElementById("child-age").value;
+        var location = document.getElementById("location").value;
+        var parentAttendSchool = document.querySelector(
+          'input[name="fb-q2-o1"]:checked'
+        );
+        var parentAttendOutdoorsActivities = document.querySelector(
+          'input[name="fb-q3-o1"]:checked'
+        );
+
+        // Question 1
+        var ch1 = document.getElementById("fb-q1-o1");
+        if (ch1.checked) {
+          curriculum.push(ch1.value);
+        }
+        ch1 = document.getElementById("fb-q1-o2");
+        if (ch1.checked) {
+          curriculum.push(ch1.value);
+        }
+        ch1 = document.getElementById("fb-q1-o3");
+        if (ch1.checked) {
+          curriculum.push(ch1.value);
+        }
+        ch1 = document.getElementById("fb-q1-o4");
+        if (ch1.checked) {
+          curriculum.push(ch1.value);
+        }
+        ch1 = document.getElementById("fb-q1-o5");
+        if (ch1.checked) {
+          curriculum.push(ch1.value);
+        }
+        ch1 = document.getElementById("fb-q1-o6");
+        if (ch1.checked) {
+          curriculum.push(ch1.value);
+        }
+
+        if (curriculum.length === 0) {
+          document.getElementById("q1-message").style.visibility = "visible";
+        } else {
+          document.getElementById("q1-message").style.visibility = "hidden";
+        }
+
+        // ---------------- Question 2
+
+        if (parentAttendSchool === null) {
+          document.getElementById("q2-message").style.visibility = "visible";
+        } else {
+          parentAttendSchool = parentAttendSchool.value;
+          document.getElementById("q2-message").style.visibility = "hidden";
+        }
+
+        // -------------------Question 3
+        if (parentAttendOutdoorsActivities === null) {
+          document.getElementById("q3-message").style.visibility = "visible";
+        } else {
+          parentAttendOutdoorsActivities = parentAttendOutdoorsActivities.value;
+          document.getElementById("q3-message").style.visibility = "hidden";
+        }
+
+        // -------------------- Question 4
+        var ch2 = document.getElementById("fb-q4-o1");
+        if (ch2.checked) {
+          profGuidance.push(ch2.value);
+        }
+        ch2 = document.getElementById("fb-q4-o2");
+        if (ch2.checked) {
+          profGuidance.push(ch2.value);
+        }
+        ch2 = document.getElementById("fb-q4-o3");
+        if (ch2.checked) {
+          profGuidance.push(ch2.value);
+        }
+        ch2 = document.getElementById("fb-q4-o4");
+        if (ch2.checked) {
+          profGuidance.push(ch2.value);
+        }
+        ch2 = document.getElementById("fb-q4-o5");
+        if (ch2.checked) {
+          profGuidance.push(ch2.value);
+        }
+        ch2 = document.getElementById("fb-q4-o6");
+        if (ch2.checked) {
+          profGuidance.push(ch2.value);
+        }
+        ch2 = document.getElementById("fb-q4-o7");
+        if (ch2.checked) {
+          profGuidance.push(ch2.value);
+        }
+
+        if (profGuidance.length === 0) {
+          document.getElementById("q4-message").style.visibility = "visible";
+        } else {
+          document.getElementById("q4-message").style.visibility = "hidden";
+        }
+        console.log(profGuidance)
+
+        // Text Fields
+        if (parentName === "") {
+          document.getElementById("parent-name-message").style.visibility =
+            "visible";
+        } else {
+          document.getElementById("parent-name-message").style.visibility =
+            "hidden";
+        }
+        if (contact === "" || contact.length < 10) {
+          document.getElementById("contact-number-message").style.visibility =
+            "visible";
+        } else {
+          document.getElementById("contact-number-message").style.visibility =
+            "hidden";
+        }
+
+        if (email === "" || !regEmail.test(email)) {
+          document.getElementById("email-message").style.visibility = "visible";
+        } else {
+          document.getElementById("email-message").style.visibility = "hidden";
+        }
+
+        if (age === "" || parseInt(age) < 2 || parseInt(age) > 16) {
+          document.getElementById("child-age-message").style.visibility =
+            "visible";
+        } else {
+          document.getElementById("child-age-message").style.visibility =
+            "hidden";
+        }
+
+        if (location === "") {
+          document.getElementById("location-message").style.visibility =
+            "visible";
+        } else {
+          document.getElementById("location-message").style.visibility =
+            "hidden";
+        }
+
+        console.log("Submit form");
+        return false;
+      }
+    </script>
   </head>
   <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
     <div class="full">
@@ -1032,7 +1181,10 @@
               <div>
                 <a href="#close-modal" title="Close" class="modal-close">✕</a>
                 <h1>Feedback</h1>
-                <form>
+                <form
+                  name="feedback1"
+                  onsubmit="handleFeedBack(); return false;"
+                >
                   <!-- Question 1 -->
                   <span class="form-question"
                     >1. Which topics would you like to be part of
@@ -1040,31 +1192,67 @@
                   >
                   <div class="styled-input-container styled-input--rounded">
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q1-o1" id="fb-q1-o1" />
+                      <input
+                        type="checkbox"
+                        name="fb-q1-o1"
+                        id="fb-q1-o1"
+                        value="Basic Syllabus"
+                      />
                       <label for="fb-q1-o1">Basic Syllabus</label>
                     </div>
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q1-o2" id="fb-q1-o2" />
+                      <input
+                        type="checkbox"
+                        name="fb-q1-o2"
+                        id="fb-q1-o2"
+                        value="Art and Craft"
+                      />
                       <label for="fb-q1-o2">Art and craft</label>
                     </div>
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q1-o3" id="fb-q1-o3" />
+                      <input
+                        type="checkbox"
+                        name="fb-q1-o3"
+                        id="fb-q1-o3"
+                        value="Music and Rythm"
+                      />
                       <label for="fb-q1-o3">Music and Rythm</label>
                     </div>
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q1-o4" id="fb-q1-o4" />
+                      <input
+                        type="checkbox"
+                        name="fb-q1-o4"
+                        id="fb-q1-o4"
+                        value="Fitness and eye/hand coordination"
+                      />
                       <label for="fb-q1-o4"
                         >Fitness and eye/hand coordination</label
                       >
                     </div>
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q1-o5" id="fb-q1-o5" />
+                      <input
+                        type="checkbox"
+                        name="fb-q1-o5"
+                        id="fb-q1-o5"
+                        value="Speech Vocabulary"
+                      />
                       <label for="fb-q1-o5">Speech Vocabulary</label>
                     </div>
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q1-o6" id="fb-q1-o6" />
+                      <input
+                        type="checkbox"
+                        name="fb-q1-o6"
+                        id="fb-q1-o6"
+                        value="All of the above"
+                      />
                       <label for="fb-q1-o6">All of the above</label>
                     </div>
+                  </div>
+                  <div
+                    id="q1-message"
+                    style="visibility: hidden; color: red; margin-bottom: 7px"
+                  >
+                    Please Select One Value
                   </div>
 
                   <!-- Question 2 -->
@@ -1074,17 +1262,38 @@
                   >
                   <div class="styled-input-container styled-input--rounded">
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q2-o1" id="fb-q2-o1" />
+                      <input
+                        type="radio"
+                        name="fb-q2-o1"
+                        id="fb-q2-o1"
+                        value="Once a week"
+                      />
                       <label for="fb-q2-o1">Once a week</label>
                     </div>
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q2-o2" id="fb-q2-o2" />
+                      <input
+                        type="radio"
+                        name="fb-q2-o1"
+                        id="fb-q2-o2"
+                        value="Once in 2 weeks"
+                      />
                       <label for="fb-q2-o2">Once in 2 weeks</label>
                     </div>
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q2-o3" id="fb-q2-o3" />
+                      <input
+                        type="radio"
+                        name="fb-q2-o1"
+                        id="fb-q2-o3"
+                        value="Once a month"
+                      />
                       <label for="fb-q2-o3">Once a month</label>
                     </div>
+                  </div>
+                  <div
+                    id="q2-message"
+                    style="visibility: hidden; color: red; margin-bottom: 7px"
+                  >
+                    Please Select one value
                   </div>
 
                   <!-- Question 3 -->
@@ -1094,17 +1303,38 @@
                   >
                   <div class="styled-input-container styled-input--rounded">
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q3-o1" id="fb-q3-o1" />
+                      <input
+                        type="radio"
+                        name="fb-q3-o1"
+                        id="fb-q3-o1"
+                        value="Once in 2 weeks"
+                      />
                       <label for="fb-q3-o1">Once in 2 weeks</label>
                     </div>
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q3-o2" id="fb-q3-o2" />
+                      <input
+                        type="radio"
+                        name="fb-q3-o1"
+                        id="fb-q3-o2"
+                        value="Once a month"
+                      />
                       <label for="fb-q3-o2">Once a month</label>
                     </div>
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q3-o3" id="fb-q3-o3" />
+                      <input
+                        type="radio"
+                        name="fb-q3-o1"
+                        id="fb-q3-o3"
+                        value="Once in 2 months"
+                      />
                       <label for="fb-q3-o3">Once in 2 months</label>
                     </div>
+                  </div>
+                  <div
+                    id="q3-message"
+                    style="visibility: hidden; color: red; margin-bottom: 7px"
+                  >
+                    Please Select one value
                   </div>
 
                   <!-- Question 4 -->
@@ -1114,37 +1344,43 @@
                   >
                   <div class="styled-input-container styled-input--rounded">
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q4-o1" id="fb-q4-o1" />
+                      <input type="checkbox" name="fb-q4-o1" id="fb-q4-o1" value="Syllabus revision techniques"/>
                       <label for="fb-q4-o1">Syllabus revision techniques</label>
                     </div>
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q4-o2" id="fb-q4-o2" />
+                      <input type="checkbox" name="fb-q4-o2" id="fb-q4-o2" value="Daily routine"/>
                       <label for="fb-q4-o2">Daily routine</label>
                     </div>
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q4-o3" id="fb-q4-o3" />
+                      <input type="checkbox" name="fb-q4-o3" id="fb-q4-o3" value="Behavioural observation" />
                       <label for="fb-q4-o3">Behavioural observation</label>
                     </div>
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q4-o4" id="fb-q4-o4" />
+                      <input type="checkbox" name="fb-q4-o4" id="fb-q4-o4" value="Discipline" />
                       <label for="fb-q4-o4">Discipline</label>
                     </div>
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q4-o5" id="fb-q4-o5" />
+                      <input type="checkbox" name="fb-q4-o5" id="fb-q4-o5" value="Temper issues"/>
                       <label for="fb-q4-o5">Temper issues</label>
                     </div>
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q4-o6" id="fb-q4-o6" />
+                      <input type="checkbox" name="fb-q4-o6" id="fb-q4-o6" value="Keeping child engaged longer"/>
                       <label for="fb-q4-o6">Keeping child engaged longer</label>
                     </div>
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q4-o7" id="fb-q4-o7" />
+                      <input type="checkbox" name="fb-q4-o7" id="fb-q4-o7" value="Learning encouragement"/>
                       <label for="fb-q4-o7">Learning encouragement</label>
                     </div>
                     <div class="styled-input-single">
-                      <input type="checkbox" name="fb-q4-o8" id="fb-q4-o8" />
+                      <input type="checkbox" name="fb-q4-o8" id="fb-q4-o8" value="All of the above"/>
                       <label for="fb-q4-o8">All of the above</label>
                     </div>
+                  </div>
+                  <div
+                    id="q4-message"
+                    style="visibility: hidden; color: red; margin-bottom: 7px"
+                  >
+                    Please Select one value
                   </div>
 
                   <!-- Question 5 -->
@@ -1256,55 +1492,92 @@
                   <input
                     type="text"
                     name="parent-name"
+                    id="parent-name"
                     class="form-control input-field"
                     placeholder="Parent Name"
-                    style="margin-bottom: 15px"
-                    required
+                    style="margin-bottom: 7px"
                   />
+                  <div
+                    id="parent-name-message"
+                    style="visibility: hidden; color: red; margin-bottom: 7px"
+                  >
+                    Parent Name is required!
+                  </div>
 
                   <!-- Contact Number -->
                   <span class="form-question">Contact Number</span>
                   <input
                     type="text"
                     name="contact-number"
+                    id="contact-number"
                     class="form-control input-field"
                     placeholder="Contact Number"
-                    style="margin-bottom: 15px"
-                    required
+                    style="margin-bottom: 7px"
                   />
+                  <div
+                    id="contact-number-message"
+                    style="visibility: hidden; color: red; margin-bottom: 7px"
+                  >
+                    Please Enter a Valid Indian Number (without +91)!
+                  </div>
 
                   <!-- Email -->
                   <span class="form-question">Email</span>
                   <input
-                    type="email"
                     name="email"
+                    id="email"
                     class="form-control input-field"
                     placeholder="Email"
-                    style="margin-bottom: 15px"
-                    required
+                    style="margin-bottom: 7px"
                   />
+                  <div
+                    id="email-message"
+                    style="visibility: hidden; color: red; margin-bottom: 7px"
+                  >
+                    Please Enter a Valid Email Id
+                  </div>
 
                   <!-- Age of Child -->
                   <span class="form-question">Age of Child</span>
                   <input
                     type="text"
                     name="child-age"
+                    id="child-age"
                     class="form-control input-field"
                     placeholder="Age of Child"
-                    style="margin-bottom: 15px"
-                    required
+                    style="margin-bottom: 7px"
                   />
+                  <div
+                    id="child-age-message"
+                    style="visibility: hidden; color: red; margin-bottom: 7px"
+                  >
+                    Child Age must be between 2 to 16 years
+                  </div>
 
                   <!-- Residential Location -->
                   <span class="form-question">Residential Location</span>
-                  <input
-                    type="text"
+
+                  <select
                     name="location"
+                    id="location"
                     class="form-control input-field"
-                    placeholder="Residential Location"
-                    style="margin-bottom: 15px"
-                    required
-                  />
+                    style="margin-bottom: 7px"
+                    placeholder="Select Residential Location"
+                  >
+                    <option value="">Select Residential Location</option>
+
+                    <option value="Malad">Malad</option>
+                    <option value="Bandra">Bandra</option>
+                    <option value="Mulund">Mulund</option>
+                    <option value="Pawai">Pawai</option>
+                    <option value="Others">Others</option>
+                  </select>
+                  <div
+                    id="location-message"
+                    style="visibility: hidden; color: red; margin-bottom: 7px"
+                  >
+                    Please Select Residential Location
+                  </div>
 
                   <p>
                     Thank you for your time. Your inputs will help us improve.
