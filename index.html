@@ -299,7 +299,6 @@
             "hidden";
         }
 
-
         if (isValid) {
           document.getElementById("submit_btn").innerHTML = "Submitting";
           let data = {
@@ -322,10 +321,11 @@
 
           // axios function-----
           const url =
-            "https://virtserver.swaggerhub.com/hdk-pnchl/raisingRightSurveyform/1.0.0/survey";
+            "https://c9919bmkm0.execute-api.ap-south-1.amazonaws.com/dev";
           const params = {
             headers: {
               "content-type": "application/json; charset=UTF-8",
+              "x-api-key": "XEBvzwbFGw6xTIfHslCc8vGI6NdQA0EJ1Duvt4f0",
             },
             body: data,
             method: "POST",
