@@ -320,26 +320,27 @@
           };
 
           // axios function-----
-          const url =
-            "https://webapi.raisingright.education/survey";
+          const url = "https://webapi.raisingright.education/survey";
           const params = {
             headers: {
               "content-type": "application/json; charset=UTF-8",
               "x-api-key": "XEBvzwbFGw6xTIfHslCc8vGI6NdQA0EJ1Duvt4f0",
             },
-            body: data,
+            body: JSON.stringify(data),
             method: "POST",
+            mode: "no-cors",
+
           };
 
           fetch(url, params)
             .then((data) => {
-              console.log(data);
+              console.log(data, "submitted form");
               document.getElementById("success-message-1").style.visibility =
                 "visible";
-              timeout = setTimeout(() => {
-                window.location.replace("#close-modal");
-                window.location.reload();
-              }, 3000);
+              // timeout = setTimeout(() => {
+              //   window.location.replace("#close-modal");
+              //   window.location.reload();
+              // }, 3000);
               document.getElementById("submit_btn").innerHTML = "Submit";
             })
             .catch((err) => {
@@ -350,7 +351,6 @@
           document.getElementById("submit_btn").innerHTML = "Submit";
         }
       }
-      
     </script>
   </head>
   <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
