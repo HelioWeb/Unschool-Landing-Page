@@ -277,11 +277,11 @@ i {
   transition: all 0.2s ease-in-out;
 }
 .navbar-brand-centered img {
-  max-height: 75px;
+  max-height: 100px;
   position: absolute;
   left: 0;
   right: 0;
-  top: 12%;
+  top: 0%;
   margin: auto;
 }
 /* =========================== Main Slider ============================ */
