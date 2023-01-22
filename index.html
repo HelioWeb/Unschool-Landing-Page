@@ -328,8 +328,6 @@
             },
             body: JSON.stringify(data),
             method: "POST",
-            mode: "no-cors",
-
           };
 
           fetch(url, params)
@@ -337,10 +335,10 @@
               console.log(data, "submitted form");
               document.getElementById("success-message-1").style.visibility =
                 "visible";
-              // timeout = setTimeout(() => {
-              //   window.location.replace("#close-modal");
-              //   window.location.reload();
-              // }, 3000);
+              timeout = setTimeout(() => {
+                window.location.replace("#close-modal");
+                window.location.reload();
+              }, 3000);
               document.getElementById("submit_btn").innerHTML = "Submit";
             })
             .catch((err) => {
@@ -350,6 +348,133 @@
           return false;
           document.getElementById("submit_btn").innerHTML = "Submit";
         }
+      }
+
+      function handleContact() {
+        let isValid = true;
+        var regEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g; //Javascript reGex for Email Validation.
+
+        var parentName = document.getElementById("contact-name").value;
+        var contactNumber = document.getElementById(
+          "contact-number-form"
+        ).value;
+        var email = document.getElementById("contact-email-form").value;
+        var textMessage = document.getElementById("contact-text-form").value;
+        var age = document.getElementById("contact-age-form").value;
+        var location = document.getElementById("contact-location-form").value;
+
+        //  -------------- Parent Name
+        if (parentName === "") {
+          document.getElementById("contact-name-message").style.visibility =
+            "visible";
+          isValid = false;
+        } else {
+          document.getElementById("contact-name-message").style.visibility =
+            "hidden";
+        }
+
+        // ---------------- Contact Number
+        if (contactNumber === "") {
+          document.getElementById(
+            "contact-number-form-message"
+          ).style.visibility = "visible";
+          isValid = false;
+        } else {
+          document.getElementById(
+            "contact-number-form-message"
+          ).style.visibility = "hidden";
+        }
+
+        // ----------- Email
+        if (email === "" || !regEmail.test(email)) {
+          document.getElementById(
+            "contact-email-form-message"
+          ).style.visibility = "visible";
+          isValid = false;
+        } else {
+          document.getElementById(
+            "contact-email-form-message"
+          ).style.visibility = "hidden";
+        }
+
+        // ---------------- Child's Age
+        if (age === "" || parseInt(age) < 2 || parseInt(age) > 16) {
+          document.getElementById("contact-age-form-message").style.visibility =
+            "visible";
+          isValid = false;
+        } else {
+          document.getElementById("contact-age-form-message").style.visibility =
+            "hidden";
+        }
+
+        // ---------- Location
+
+        if (location === "") {
+          document.getElementById(
+            "contact-location-form-message"
+          ).style.visibility = "visible";
+          isValid = false;
+        } else {
+          document.getElementById(
+            "contact-location-form-message"
+          ).style.visibility = "hidden";
+        }
+
+        // ---------------- Text Message
+        if (textMessage === "") {
+          document.getElementById(
+            "contact-text-form-message"
+          ).style.visibility = "visible";
+          isValid = false;
+        } else {
+          document.getElementById(
+            "contact-text-form-message"
+          ).style.visibility = "hidden";
+        }
+
+        if (isValid) {
+          document.getElementById("submit_btn_contact").innerHTML =
+            "Submitting";
+
+          let data = {
+            parentName: parentName,
+            contactNumber: contactNumber,
+            email: email,
+            childAge: parseInt(age),
+            residentialLocation: location,
+            message: textMessage,
+          };
+          // axios function-----
+          const url = "https://webapi.raisingright.education/contacts";
+          const params = {
+            headers: {
+              "content-type": "application/json; charset=UTF-8",
+              "x-api-key": "XEBvzwbFGw6xTIfHslCc8vGI6NdQA0EJ1Duvt4f0",
+            },
+            body: JSON.stringify(data),
+            method: "POST",
+          };
+
+          fetch(url, params)
+            .then((data) => {
+              console.log(data, "submitted form");
+              document.getElementById("success-message-contact").style.visibility =
+                "visible";
+              timeout = setTimeout(() => {
+                window.location.replace("#close-modal");
+                window.location.reload();
+              }, 3000);
+              document.getElementById("submit_btn_contact").innerHTML = "Submit";
+            })
+            .catch((err) => {
+              console.log(err, "error in submitting data");
+            });
+        } else {
+          return false;
+          document.getElementById("submit_btn_contact").innerHTML = "Submit";
+        }
+
+        return false;
       }
     </script>
   </head>
@@ -511,8 +636,8 @@
                 For kids between age of 1.5 to 6 along with “time in the
                 school”, we have as well designed “time at home” filled with
                 playful activities and sound observations, that could silently
-                help build up characters. This also includes strong
-                involvement from parents, so that together we can help the kid.
+                help build up characters. This also includes strong involvement
+                from parents, so that together we can help the kid.
               </p>
               <p>
                 We have used this method of learning in India and Singapore, and
@@ -560,25 +685,25 @@
                         <div>
                           How surprised would you be to know that the national
                           education policy and basic frameowrk of teaching is 31
-                          years old? 
-                          <br>
-                          It was designed and planned around the time
-                          when Photo CDs were invented. Video CDs still did not
-                          exist. The irrelevance of that teaching pattern is
-                          like teaching a child how to use a calculator when
-                          they can actually make one. 
-                          <br>
-                          Ofcourse there has been a
-                          few upgrades in the curriculum over the years, though the content of learning is not
-                          growing with the same speed as the technology. Also,
-                          there is a predecided amount of information to be
-                          given to the child as per their age. This ratio has
-                          not changed in all these years inspite of the kids
-                          being twice as adaptive since then. Education in India
-                          is the next big thing that could be remodelled. 
-                          <br>
-                          As
-                          homeschooling parents, we have had a freestyle of
+                          years old?
+                          <br />
+                          It was designed and planned around the time when Photo
+                          CDs were invented. Video CDs still did not exist. The
+                          irrelevance of that teaching pattern is like teaching
+                          a child how to use a calculator when they can actually
+                          make one.
+                          <br />
+                          Ofcourse there has been a few upgrades in the
+                          curriculum over the years, though the content of
+                          learning is not growing with the same speed as the
+                          technology. Also, there is a predecided amount of
+                          information to be given to the child as per their age.
+                          This ratio has not changed in all these years inspite
+                          of the kids being twice as adaptive since then.
+                          Education in India is the next big thing that could be
+                          remodelled.
+                          <br />
+                          As homeschooling parents, we have had a freestyle of
                           teaching techniques combining a lot of different
                           patterns of learning from fairly distinct communities.
                           Now we think, we have gathered enough to start
@@ -606,8 +731,8 @@
                         <div>
                           We have built a tiny world for kids in a way that they
                           feel belonged. Spread over the area of 3500 sqft and 3
-                          different sections. We have the learning rooms,
-                          open play area and library.
+                          different sections. We have the learning rooms, open
+                          play area and library.
                           <ol style="margin-top: 16px">
                             <li>
                               The learning rooms: We have spacious learning
@@ -619,8 +744,8 @@
                             </li>
                             <li>
                               Open play area : This section is purely for
-                              different types of play and making friends.
-                              There is a spread of educational wooden toys,
+                              different types of play and making friends. There
+                              is a spread of educational wooden toys,
                               intellectual puzzles and board games. This space
                               also has a setup where parents can play along with
                               the kids or just relax and work while kids play
@@ -665,22 +790,22 @@
                         <div>
                           The knowledge we wish to deliver through this
                           preschool is completely based on the aptitude of the
-                          kids today and their speed of learning. <br> There are a
-                          lot of topics that we wish to familiarise our kids
-                          with like racial harmony, world history, use of basic
-                          gadgets and technology, self defence and alertness,
-                          religious tolerance, Interantional cuisine, Table
-                          manners etc. <br>All the information that is not in any
-                          curriculum yet every parent would want their kids to
-                          know. We also focus on a lot of extracurricular
-                          involvement like music, instruments, dance, yoga,
-                          malkhamb, various sports, different form of
-                          fine arts, speech and drama, elocution. <br> We believe
-                          that kids develop an instinct about various activities
-                          from a very young age and the earlier we introduce
-                          them, the more clear they become of their passions and
-                          hobbies and likes and dislikes. We also wish to
-                          imapart some behavioural characteristics like
+                          kids today and their speed of learning. <br />
+                          There are a lot of topics that we wish to familiarise
+                          our kids with like racial harmony, world history, use
+                          of basic gadgets and technology, self defence and
+                          alertness, religious tolerance, Interantional cuisine,
+                          Table manners etc. <br />All the information that is
+                          not in any curriculum yet every parent would want
+                          their kids to know. We also focus on a lot of
+                          extracurricular involvement like music, instruments,
+                          dance, yoga, malkhamb, various sports, different form
+                          of fine arts, speech and drama, elocution. <br />
+                          We believe that kids develop an instinct about various
+                          activities from a very young age and the earlier we
+                          introduce them, the more clear they become of their
+                          passions and hobbies and likes and dislikes. We also
+                          wish to imapart some behavioural characteristics like
                           replacement of gadgets, temper control, balance
                           between discipline and freedom etc.
                           <br />
@@ -1431,9 +1556,8 @@
                     <option value="">Select Residential Location</option>
 
                     <option value="Malad">Malad</option>
-                    <option value="Bandra">Bandra</option>
-                    <option value="Mulund">Mulund</option>
-                    <option value="Pawai">Pawai</option>
+                    <option value="Kandivali">Kandivali</option>
+                    <option value="Borivali">Borivali</option>
                     <option value="Others">Others</option>
                   </select>
                   <div
@@ -1493,28 +1617,40 @@
               <div>
                 <a href="#modal-close" title="Close" class="modal-close">✕</a>
                 <!-- <h1>Intrested in trying Unschool for Free?</h1> -->
-                <form>
+                <form name="contact" onsubmit="handleContact(); return false;">
                   <!-- Name -->
                   <!-- <span class="form-question">Name</span> -->
                   <input
                     type="text"
                     name="name"
+                    id="contact-name"
                     class="form-control input-field"
                     placeholder="Name"
                     style="margin-bottom: 15px"
-                    required
                   />
+                  <div
+                    id="contact-name-message"
+                    style="visibility: hidden; color: red; margin-bottom: 7px"
+                  >
+                    Please Enter your name
+                  </div>
 
                   <!-- Contact Number -->
                   <!-- <span class="form-question">Contact Number</span> -->
                   <input
                     type="text"
                     name="contact-number"
+                    id="contact-number-form"
                     class="form-control input-field"
                     placeholder="Contact Number"
                     style="margin-bottom: 15px"
-                    required
                   />
+                  <div
+                    id="contact-number-form-message"
+                    style="visibility: hidden; color: red; margin-bottom: 7px"
+                  >
+                    Please Enter your contact number
+                  </div>
 
                   <!-- Email -->
                   <!-- <span class="form-question">Email</span> -->
@@ -1524,23 +1660,86 @@
                     class="form-control input-field"
                     placeholder="Email"
                     style="margin-bottom: 15px"
-                    required
+                    id="contact-email-form"
                   />
+                  <div
+                    id="contact-email-form-message"
+                    style="visibility: hidden; color: red; margin-bottom: 7px"
+                  >
+                    Please enter valid email id
+                  </div>
+
+                  <!-- Child's age -->
+                  <input
+                    type="text"
+                    name="child-age-form"
+                    id="contact-age-form"
+                    class="form-control input-field"
+                    placeholder="Age of Child"
+                    style="margin-bottom: 7px"
+                  />
+                  <div
+                    id="contact-age-form-message"
+                    style="visibility: hidden; color: red; margin-bottom: 7px"
+                  >
+                    Child Age must be between 2 to 16 years
+                  </div>
+
+                  <!-- Residential Location -->
+                  <!-- <span class="form-question">Residential Location</span> -->
+
+                  <select
+                    name="location"
+                    id="contact-location-form"
+                    class="form-control input-field"
+                    style="margin-bottom: 7px"
+                    placeholder="Select Residential Location"
+                  >
+                    <option value="">Select Residential Location</option>
+
+                    <option value="Malad">Malad</option>
+                    <option value="Kandivali">Kandivali</option>
+                    <option value="Borivali">Borivali</option>
+                    <option value="Others">Others</option>
+                  </select>
+                  <div
+                    id="contact-location-form-message"
+                    style="visibility: hidden; color: red; margin-bottom: 7px"
+                  >
+                    Please Select Residential Location
+                  </div>
 
                   <!-- Message -->
                   <!-- <span class="form-question">Message</span> -->
                   <textarea
                     name="message"
-                    id="message"
+                    id="contact-text-form"
                     class="textarea-field form-control"
                     rows="4"
                     placeholder="Enter your message"
-                    required
+                    style="margin-bottom: 15px"
                   ></textarea>
+                  <div
+                    id="contact-text-form-message"
+                    style="visibility: hidden; color: red; margin-bottom: 7px"
+                  >
+                    Please enter your message :)
+                  </div>
+
+                  <div
+                    id="success-message-contact"
+                    style="
+                      visibility: hidden;
+                      color: rgb(43, 170, 12);
+                      margin-bottom: 5px;
+                    "
+                  >
+                    Thank you! Your response has been recorded!
+                  </div>
 
                   <button
                     type="submit"
-                    id="submit_btn"
+                    id="submit_btn_contact"
                     value="Submit"
                     class="btn center-block"
                     style="float: right"
@@ -1561,14 +1760,16 @@
         <div class="contact-information">
           <p style="flex: 33%">
             <i class="fa fa-envelope margin-icon"></i
-            ><a href="mailto:aakashee.shah@raisingright.com">aakashee.shah@raisingright.com</a>
+            ><a href="mailto:aakashee.shah@raisingright.com"
+              >aakashee.shah@raisingright.com</a
+            >
           </p>
           <p style="flex: 34%">
             <i class="fa fa-phone margin-icon"></i>+91 83559 53059
           </p>
           <p style="flex: 33%">
             <i class="fa fa-map-marker margin-icon"></i>
-            5, Kamla nagar, MG road, Kandivali West. Mumbai 67 
+            5, Kamla nagar, MG road, Kandivali West. Mumbai 67
           </p>
         </div>
       </section>
@@ -1635,9 +1836,7 @@
         </div>
         <!-- / container -->
         <hr />
-        <p>
-          Copyright © 2023 <a href="/index.html">RaisingRight</a>
-        </p>
+        <p>Copyright © 2023 <a href="/index.html">RaisingRight</a></p>
         <!-- /container -->
         <!-- Go To Top Link -->
         <div class="page-scroll hidden-sm hidden-xs">
