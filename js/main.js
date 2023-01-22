@@ -221,6 +221,6 @@ $(window).click(function (e) {
 
     window.location = "/#modal-close";
   } else {
-    console.log("wrong class");
+    // console.log("wrong class");
   }
 });

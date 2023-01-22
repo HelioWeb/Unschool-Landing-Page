@@ -325,7 +325,7 @@ i {
 }
 /*=========================== Video Header ============================ */
 #video-header {
-  background-image: url(../videos/placeholder-video.jpg);
+  /* background-image: url(../videos/placeholder-video.jpg); */
   background-size: cover;
   margin-top: 75px;
 }
@@ -416,7 +416,7 @@ i {
 #interactions .container {
   position: relative;
   overflow: hidden;
-  background-image: url(../img/dummy-callout.png);
+  /* background-image: url(../img/dummy-callout.png); */
   background-position: bottom right;
   background-repeat: no-repeat;
 }
