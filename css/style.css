@@ -3072,8 +3072,8 @@ textarea.form-control:focus {
 /************ min width 768px *************/
 @media (min-width: 768px) {
   #navbar-brand-centered .container {
-    min-width: 800px !important;
-    max-width: 830px;
+    min-width: 1030px !important;
+    max-width: 1060px;
     width: 100%;
   }
   .navbar-right {
